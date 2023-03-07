@@ -1,0 +1,22 @@
+qdevelopment:
+qtest:
+qproduction:
+
+xdefault: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV['MAX_THREADS'] || 5 %>
+  port: 5432
+  host: 'host.docker.internal'
+
+xdevelopment:
+  <<: *default
+  database: rails_4_docker
+
+xtest:
+  <<: *default
+  database: rails_4_docker_test
+
+xproduction:
+  <<: *default
+  database: rails_4_docker_production
