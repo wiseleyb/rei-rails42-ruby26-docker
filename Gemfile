@@ -10,6 +10,7 @@ gem 'pg', '= 0.20.0' # Until Rails 5.1.5
 gem 'nokogiri', '1.13.10'
 gem "administrate"
 gem 'redcarpet' # converts markdown to html
+gem 'redis', '4.1.4' # silences redis warnings from sidekiq
 gem 'redis-rails', '4.0'
 gem 'connection_pool', '2.2.1'
 

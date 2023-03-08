@@ -21,9 +21,13 @@ Prerequisites:
    for BUNDLE_ENTERPRISE from Ben/Michael
 
 ```
+BUNDLE_ENTERPRISE_CONTRIBSYS_COM=un:pw
+```
+* In .rbenv-vars put non-build specific ENVs
+
+```
 DATABASE_URL=postgresql://un:pw@host.docker.internal/rails_4_docker
 REDIS_URL=redis://host.docker.internal:6379
-BUNDLE_ENTERPRISE_CONTRIBSYS_COM=un:pw
 ```
 
 * Create some alias'
@@ -119,6 +123,15 @@ alias dcbuild='docker-compose build'
 alias dccon='docker-compose web bundle exec rails c'
 alias dcrails='docker-compose run web bundle exec rails'
 alias dcrake='docker-compose run web bundle exec rake'
+```
+
+TODO: Figure out better way to do this.
+Copy Gemfile.lock changes during docker build back to local file system (to put in source control).
+
+```
+touch Gemfile.lock && \
+  docker-compose build && \
+  docker cp rei-rails42-ruby26-docker-web-1:/app/Gemfile.lock Gemfile.lock
 ```
 
 ### Gemfile.lock
