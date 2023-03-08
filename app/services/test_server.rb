@@ -3,11 +3,11 @@ class TestServer
   def self.run!
     loop do
       puts ''
-      puts '*' * 20
+      puts '*' * 15
       puts "ts: #{Time.now.to_f}"
-      puts '*' * 20
+      puts '*' * 15
       puts ''
-      sleep 5
+      sleep 10
     end
   end
 end
